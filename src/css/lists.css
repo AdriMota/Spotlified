@@ -1,0 +1,146 @@
+/********************************************************************************/
+/* STANDARD LIST */
+
+ul.list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+  
+ul.list li {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  
+    margin: 0;
+    padding: 0.75rem 1rem;
+    border-bottom: 2px solid var(--text-color-dark);
+    transition: background-color var(--default-transition);
+}
+  
+ul.list li:hover {
+    border-bottom: 2px solid var(--blue-color);
+}
+  
+ul.list li a {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+  
+ul.list li .list-item-title {
+    flex-grow: 1;
+}
+
+
+/********************************************************************************/
+/* PLAYLISTS LIST */
+.playlists {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+  
+.playlists a {
+  flex: 0 0 calc(25% - 3rem);
+  padding: 1.5rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+  background-color: var(--text-color-light);
+  border-radius: var(--border-radius);
+  border: 2px solid var(--pink-color);
+  transition: background-color var(--default-transition);
+  color: var(--pink-color);
+
+  /* affichage d'un ellipsis */
+  white-space: nowrap; /* les espaces deviennent insécables  */
+  overflow: hidden; /* on cache ce qui dépasse */
+  text-overflow: ellipsis; /* on ajoute un ellipsis si ça dépasse */
+}
+
+.playlists a:hover {
+    background-color: var(--pink-color);
+    color: var(--text-color-light);
+}
+
+/* pour les mobiles 2 par ligne */
+@media (max-width: 768px) {
+    .playlists a {
+        flex-basis: calc(50% - 3rem);
+    }
+}
+  
+/* pour les smartphones 3 par ligne */
+@media (min-width: 768px) and (max-width: 992px) {
+    .playlists a {
+        flex-basis: calc(33% - 3rem);
+    }
+}
+
+.allsongs {
+    margin-top: 10%;
+    
+}
+
+.allsongs a {
+    background-color: var(--pink-color);
+    color: var(--text-color-light);
+}
+
+
+/********************************************************************************/
+/* ARTISTS LIST */
+
+.artist-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 1rem;
+}
+  
+.artist-list a {
+    position: relative;
+    height: 150px;
+    width: 150px;
+    color: var(--text-color-dark);
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+  
+    /* affichage d'un ellipsis */
+    white-space: nowrap; /* les espaces deviennent insécables  */
+    overflow: hidden; /* on cache ce qui dépasse */
+    text-overflow: ellipsis; /* on ajoute un ellipsis si ça dépasse */
+}
+  
+.artist-list a .artist-list-item-title {
+    /* absolute pour superposer le titre et l'image */
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    line-height: 150px;
+}
+
+.artist-list a .artist-list-item-title:hover {
+    color: var(--blue-color);
+}
+  
+.artist-list a img {
+    /* absolute pour superposer le titre et l'image */
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    opacity: 0.2;
+    transition: opacity var(--default-transition);
+}
+  
+.artist-list a:hover img {
+    opacity: 0.8;
+}
+  

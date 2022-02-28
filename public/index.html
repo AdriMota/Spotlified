@@ -1,15 +1,261 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>WebMobUI</title>
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Icons" />
-    <link rel="stylesheet" href="main.css" />
+<head>
+  <meta charset="utf-8" />
+  <title>Spotlified</title>
 
-    <script src="main.js"></script>
-  </head>
-  <body>
-    <span class="material-icons">face</span>
-  </body>
+  <!-- Il s'agit d'une app -> pas de zoom -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+
+  <!-- Fonts google pour les icônes et la police par défaut -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Icons" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;700&display=swap" />
+
+  <!-- Stylesheet principale (main.css est le nom de sortie utilisé par Webpack) -->
+  <link rel="stylesheet" href="main.css" />
+
+  <!-- Javascript principal (main.js est le nom de sortie utilisé par Webpack) -->
+  <script src="main.js" defer></script>
+</head>
+
+<body>
+  <header>
+    <div>
+      <img id="logo" class="material-icons" src="images/icon-spotlified.png" alt="Icône Spotlified">
+      <span id="name">Spotlified</span>
+    </div>
+
+    <div>
+      <input id="search-box" type="text" name="q" />
+      <label for="search-box"><span id="search" class="material-icons">search</span></label>
+    </div>
+  </header>
+
+  <main>
+    <!-- ajouter la classe "active" à une section pour l'afficher -->
+
+    <!------------------------------------------------------------------------------------------------------------>
+
+    <section id="home-section" class="active">
+      <h1 class="bigTitle">Bienvenue sur Spotlified</h1>
+      <h2>Playlists</h2>
+
+      <div class="playlists">
+        <a href="#">Chillectro</a>
+        <a href="#">Motivation</a>
+        <a href="#">Pardy pardy</a>
+        <a href="#">A very long playlist name</a>
+        <a href="#">Shake ton booty</a>
+        <a href="#">Trance</a>
+      </div>
+
+      <div class="playlists allsongs">
+        <a href="#">Vers les chansons</a>
+      </div>
+    </section>
+
+    <!------------------------------------------------------------------------------------------------------------>
+
+    <section id="player-section">
+      <div class="musics">
+        <input type="radio" name="slider" id="item-1" checked>
+        <input type="radio" name="slider" id="item-2">
+        <input type="radio" name="slider" id="item-3">
+        <div class="cards">
+          <label class="card" for="item-1" id="song-1">
+            <img
+              src="https://images.unsplash.com/photo-1530651788726-1dbf58eeef1f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=882&q=80"
+              alt="song">
+          </label>
+          <label class="card" for="item-2" id="song-2">
+            <img
+              src="https://images.unsplash.com/photo-1559386484-97dfc0e15539?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1234&q=80"
+              alt="song">
+          </label>
+          <label class="card" for="item-3" id="song-3">
+            <img
+              src="https://images.unsplash.com/photo-1533461502717-83546f485d24?ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60"
+              alt="song">
+          </label>
+        </div>
+      </div>
+
+      <div id="player-infos">
+        <div id="player-infos-song">
+          <span class="material-icons">music_note</span>
+          <!-- utiliser l'id de cet élément pour changer le titre de la chanson -->
+          <span id="player-infos-song-title">
+            -
+          </span>
+        </div>
+
+        <div id="player-infos-artist">
+          <span class="material-icons">person</span>
+          <!-- utiliser l'id de cet élément pour changer le nom de l'artiste -->
+          <span id="player-infos-artist-name">
+            -
+          </span>
+        </div>
+      </div>
+
+      <div id="player-controls">
+        <!-- utiliser l'id de cet élément pour ajouter un listener pour le click sur précédent -->
+        <button type="button" class="player-control player-control-small" id="player-control-previous">
+          <span class="material-icons">skip_previous</span>
+        </button>
+        <!-- utiliser l'id de cet élément pour ajouter un listener pour le click sur play/pause -->
+        <button type="button" class="player-control" id="player-control-play">
+          <span class="material-icons">play_arrow</span>
+        </button>
+        <!-- utiliser l'id de cet élément pour ajouter un listener pour le click sur suivant -->
+        <button type="button" class="player-control player-control-small" id="player-control-next">
+          <span class="material-icons">skip_next</span>
+        </button>
+      </div>
+
+      <div class="player-progress">
+        <span id="player-time-current">--:--</span>
+        <input type="range" id="player-progress-bar" />
+        <span id="player-time-current">--:--</span>
+      </div>
+    </section>
+
+    <!------------------------------------------------------------------------------------------------------------>
+
+    <section id="artists-section">
+      <h2>Artistes</h2>
+      <div class="artist-list">
+        <a href="#">
+          <img src="http://placekitten.com/200/300" />
+          <div class="artist-list-item-title">Ava Max</div>
+        </a>
+        <a href="#">
+          <img src="http://placekitten.com/200/300" />
+          <div class="artist-list-item-title">Ed Sheeran</div>
+        </a>
+        <a href="#">
+          <img src="http://placekitten.com/200/300" />
+          <div class="artist-list-item-title">Kungs</div>
+        </a>
+        <a href="#">
+          <img src="http://placekitten.com/200/300" />
+          <div class="artist-list-item-title">Kygo</div>
+        </a>
+        <a href="#">
+          <img src="http://placekitten.com/200/300" />
+          <div class="artist-list-item-title">Lost Frequencies</div>
+        </a>
+        <a href="#">
+          <img src="http://placekitten.com/200/300" />
+          <div class="artist-list-item-title">Stromae</div>
+        </a>
+      </div>
+    </section>
+
+    <!------------------------------------------------------------------------------------------------------------>
+
+    <section id="list-section">
+      <h2>
+        Artistes > Kungs
+        <!-- Exemple avec un bouton au bout du titre. Pour l'ajout de playlists, par exemple -->
+        <button type="button" class="icon-button align-right">
+          <span class="material-icons">add</span>
+        </button>
+      </h2>
+
+      <ul class="list">
+        <!-- Exemple avec un lien et un chevron (par exemple dans la liste de playlists, le lien qui mène à son contenu-->
+        <li>
+          <a href="#">
+            <div class="list-item-title">Never going home</div>
+            <div class="list-item-actions">
+              <span class="material-icons">chevron_right</span>
+            </div>
+          </a>
+        </li>
+
+        <!-- Exemple sans lien -->
+        <li>
+          <div class="list-item-title">Never going home</div>
+          <div class="list-item-actions">
+            <button type="button" class="icon-button">
+              <span class="material-icons">playlist_add</span>
+            </button>
+            <button type="button" class="icon-button">
+              <span class="material-icons">play_arrow</span>
+            </button>
+          </div>
+        </li>
+        <li>
+          <div class="list-item-title">Never going home</div>
+          <div class="list-item-actions">
+            <button type="button" class="icon-button">
+              <span class="material-icons">playlist_add</span>
+            </button>
+            <button type="button" class="icon-button">
+              <span class="material-icons">play_arrow</span>
+            </button>
+          </div>
+        </li>
+        <li>
+          <div class="list-item-title">Never going home</div>
+          <div class="list-item-actions">
+            <button type="button" class="icon-button">
+              <span class="material-icons">playlist_add</span>
+            </button>
+            <button type="button" class="icon-button">
+              <span class="material-icons">play_arrow</span>
+            </button>
+          </div>
+        </li>
+        <li>
+          <div class="list-item-title">Never going home</div>
+          <div class="list-item-actions">
+            <button type="button" class="icon-button">
+              <span class="material-icons">playlist_add</span>
+            </button>
+            <button type="button" class="icon-button">
+              <span class="material-icons">play_arrow</span>
+            </button>
+          </div>
+        </li>
+        <li>
+          <div class="list-item-title">Never going home</div>
+          <div class="list-item-actions">
+            <button type="button" class="icon-button">
+              <span class="material-icons">playlist_add</span>
+            </button>
+            <button type="button" class="icon-button">
+              <span class="material-icons">play_arrow</span>
+            </button>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer>
+    <nav>
+      <a href="#home-section" class="active">
+        <span class="material-icons">roofing</span>
+        <span>Home</span>
+      </a>
+      <a href="#player-section">
+        <span class="material-icons">play_circle_filled</span>
+        <span>Lecteur</span>
+      </a>
+      <a href="#artists-section">
+        <span class="material-icons">queue_music</span>
+        <span>Musiques</span>
+      </a>
+      <a href="#list-section">
+        <span class="material-icons">playlist_play</span>
+        <span>Playlists</span>
+      </a>
+    </nav>
+  </footer>
+</body>
+
 </html>

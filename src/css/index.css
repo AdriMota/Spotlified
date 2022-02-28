@@ -1,6 +1,6 @@
 @import 'normalize.css';
-@import 'nav.css';
-
-body {
-  background-color: grey;
-}
+@import 'variables.css';
+@import 'typography.css';
+@import 'structure.css';
+@import 'lists.css';
+@import 'player.css';
