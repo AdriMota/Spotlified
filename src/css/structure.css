@@ -110,7 +110,7 @@ main section.active { /* affiche la section avec la classe "active" */
 /* VERIFIER */
 /*********************************************************************************/
 /*********************************************************************************/
-#player-section {
+#player {
     height: 100%;
     padding: 0;
     /* le player prend tout l'espace et centre son contenu. Les autres sections partent du haut */

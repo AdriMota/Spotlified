@@ -79,7 +79,7 @@ ul.list li .list-item-title {
         flex-basis: calc(33% - 3rem);
     }
 }
-
+/* 
 .allsongs {
     margin-top: 10%;
     
@@ -89,7 +89,7 @@ ul.list li .list-item-title {
     background-color: var(--pink-color);
     color: var(--text-color-light);
 }
-
+ */
 
 /********************************************************************************/
 /* ARTISTS LIST */
@@ -144,3 +144,19 @@ ul.list li .list-item-title {
     opacity: 0.8;
 }
   
+.icon-button {
+    border: none;
+    background-color: var(--bg-color);
+}
+
+span.favorite {
+    color: var(--text-color-dark);
+}
+
+span.favorite:hover {
+    color: var(--pink-color);
+}
+
+span.play:hover {
+    color: var(--blue-color);
+}

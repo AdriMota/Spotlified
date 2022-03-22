@@ -113,23 +113,49 @@ img {
     line-height: 2rem;
 }
 
-.player-progress {
+#player-progress {
     display:flex;
     height: 60px;
-    width: 75%;
+    width: 50%;
 }
   
-.player-progress #player-time-current {
+#player-progress #player-time-current, #player-progress #player-time-duration {
     align-items: center;
     align-self: center;
     flex-shrink: 0;
 }
   
-.player-progress #player-progress-bar {
+#player-progress #player-progress-bar {
     flex-grow: 1;
     align-items: center;
     align-self: center;
-    height: 11px;
     width: 100%;
     margin: 0 20px;
+}
+
+#player-progress-bar {
+    display: block;
+    -webkit-appearance: none;
+    background-color: #bdc3c7;
+    height: 7px;
+    border-radius: var(--border-radius);
+}
+  
+#player-progress-bar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background-color: var(--text-color-dark);
+    width: 30px;
+    height: 30px;
+    border-radius: var(--border-radius);
+    border: 2px solid white;
+    cursor: pointer;
+    transition: .3s ease-in-out;
+}
+
+#player-progress-bar::-webkit-slider-thumb:hover {
+    background-color: var(--blue-color);
+}
+
+#player-progress-bar::-webkit-slider-thumb:active {
+    transform: scale(1.5);
 }

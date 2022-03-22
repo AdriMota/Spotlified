@@ -22,12 +22,12 @@
 <body>
   <header>
     <div>
-      <img id="logo" class="material-icons" src="images/icon-spotlified.png" alt="Icône Spotlified">
+      <img id="logo" src="images/logo_spotlified.png" alt="Logo Spotlified">
       <span id="name">Spotlified</span>
     </div>
 
     <div>
-      <input id="search-box" type="text" name="q" />
+      <input id="search-box" type="text" spellcheck="false" autocapitalize="false" />
       <label for="search-box"><span id="search" class="material-icons">search</span></label>
     </div>
   </header>
@@ -37,7 +37,7 @@
 
     <!------------------------------------------------------------------------------------------------------------>
 
-    <section id="home-section" class="active">
+    <section id="home" class="active">
       <h1 class="bigTitle">Bienvenue sur Spotlified</h1>
       <h2>Playlists</h2>
 
@@ -49,32 +49,29 @@
         <a href="#">Shake ton booty</a>
         <a href="#">Trance</a>
       </div>
-
-      <div class="playlists allsongs">
-        <a href="#">Vers les chansons</a>
-      </div>
     </section>
 
     <!------------------------------------------------------------------------------------------------------------>
 
-    <section id="player-section">
+    <section id="player">
+      <audio id="audio-player"></audio>
       <div class="musics">
         <input type="radio" name="slider" id="item-1" checked>
         <input type="radio" name="slider" id="item-2">
         <input type="radio" name="slider" id="item-3">
         <div class="cards">
           <label class="card" for="item-1" id="song-1">
-            <img
+            <img class="player-thumbnail-image" id=""
               src="https://images.unsplash.com/photo-1530651788726-1dbf58eeef1f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=882&q=80"
               alt="song">
           </label>
           <label class="card" for="item-2" id="song-2">
-            <img
+            <img class="player-thumbnail-image" id=""
               src="https://images.unsplash.com/photo-1559386484-97dfc0e15539?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1234&q=80"
               alt="song">
           </label>
           <label class="card" for="item-3" id="song-3">
-            <img
+            <img class="player-thumbnail-image" id=""
               src="https://images.unsplash.com/photo-1533461502717-83546f485d24?ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60"
               alt="song">
           </label>
@@ -114,145 +111,100 @@
         </button>
       </div>
 
-      <div class="player-progress">
+      <div id="player-progress">
+        <!-- utiliser l'id de cet élément pour changer le temps écoulé -->
         <span id="player-time-current">--:--</span>
         <input type="range" id="player-progress-bar" />
-        <span id="player-time-current">--:--</span>
+        <!-- utiliser l'id de cet élément pour changer la durée totale -->
+        <span id="player-time-duration">--:--</span>
       </div>
     </section>
 
     <!------------------------------------------------------------------------------------------------------------>
 
-    <section id="artists-section">
+    <section id="artists">
       <h2>Artistes</h2>
-      <div class="artist-list">
+
+      <div class="artist-list"></div>
+
+      <template id="artist-list-item-template">
         <a href="#">
-          <img src="http://placekitten.com/200/300" />
-          <div class="artist-list-item-title">Ava Max</div>
+          <img src="" />
+          <div class="artist-list-item-title"></div>
         </a>
-        <a href="#">
-          <img src="http://placekitten.com/200/300" />
-          <div class="artist-list-item-title">Ed Sheeran</div>
-        </a>
-        <a href="#">
-          <img src="http://placekitten.com/200/300" />
-          <div class="artist-list-item-title">Kungs</div>
-        </a>
-        <a href="#">
-          <img src="http://placekitten.com/200/300" />
-          <div class="artist-list-item-title">Kygo</div>
-        </a>
-        <a href="#">
-          <img src="http://placekitten.com/200/300" />
-          <div class="artist-list-item-title">Lost Frequencies</div>
-        </a>
-        <a href="#">
-          <img src="http://placekitten.com/200/300" />
-          <div class="artist-list-item-title">Stromae</div>
-        </a>
-      </div>
+      </template>
     </section>
 
     <!------------------------------------------------------------------------------------------------------------>
 
-    <section id="list-section">
-      <h2>
-        Artistes > Kungs
-        <!-- Exemple avec un bouton au bout du titre. Pour l'ajout de playlists, par exemple -->
-        <button type="button" class="icon-button align-right">
-          <span class="material-icons">add</span>
-        </button>
-      </h2>
+    <section id="songs">
+      <h2></h2>
 
-      <ul class="list">
-        <!-- Exemple avec un lien et un chevron (par exemple dans la liste de playlists, le lien qui mène à son contenu-->
-        <li>
-          <a href="#">
-            <div class="list-item-title">Never going home</div>
-            <div class="list-item-actions">
-              <span class="material-icons">chevron_right</span>
-            </div>
-          </a>
-        </li>
+      <ul class="list"></ul>
 
-        <!-- Exemple sans lien -->
+      <template id="song-list-item-template">
         <li>
-          <div class="list-item-title">Never going home</div>
+          <div class="list-item-title"></div>
           <div class="list-item-actions">
-            <button type="button" class="icon-button">
-              <span class="material-icons">playlist_add</span>
+            <button type="button" class="icon-button favorite-button">
+              <span class="material-icons favorite">favorite</span>
             </button>
-            <button type="button" class="icon-button">
-              <span class="material-icons">play_arrow</span>
+            <button type="button" class="icon-button play-button">
+              <span class="material-icons play">play_circle_filled</span>
             </button>
           </div>
         </li>
-        <li>
-          <div class="list-item-title">Never going home</div>
-          <div class="list-item-actions">
-            <button type="button" class="icon-button">
-              <span class="material-icons">playlist_add</span>
-            </button>
-            <button type="button" class="icon-button">
-              <span class="material-icons">play_arrow</span>
-            </button>
-          </div>
-        </li>
-        <li>
-          <div class="list-item-title">Never going home</div>
-          <div class="list-item-actions">
-            <button type="button" class="icon-button">
-              <span class="material-icons">playlist_add</span>
-            </button>
-            <button type="button" class="icon-button">
-              <span class="material-icons">play_arrow</span>
-            </button>
-          </div>
-        </li>
-        <li>
-          <div class="list-item-title">Never going home</div>
-          <div class="list-item-actions">
-            <button type="button" class="icon-button">
-              <span class="material-icons">playlist_add</span>
-            </button>
-            <button type="button" class="icon-button">
-              <span class="material-icons">play_arrow</span>
-            </button>
-          </div>
-        </li>
-        <li>
-          <div class="list-item-title">Never going home</div>
-          <div class="list-item-actions">
-            <button type="button" class="icon-button">
-              <span class="material-icons">playlist_add</span>
-            </button>
-            <button type="button" class="icon-button">
-              <span class="material-icons">play_arrow</span>
-            </button>
-          </div>
-        </li>
-      </ul>
+      </template>
     </section>
 
+    <!------------------------------------------------------------------------------------------------------------>
+
+    <section id="favorites">
+      <h2>Favorites</h2>
+
+      <ul class="list"></ul>
+
+      <template id="favorite-list-item-template">
+        <li>
+          <div class="list-item-title"></div>
+          <div class="list-item-actions">
+            <button type="button" class="icon-button favorite-button">
+              <span class="material-icons favorite">favorite</span>
+            </button>
+            <button type="button" class="icon-button play-button">
+              <span class="material-icons play">play_circle_filled</span>
+            </button>
+          </div>
+        </li>
+      </template>
+    </section>
+
+    <!------------------------------------------------------------------------------------------------------------>
+
+    <section id="lyrics">
+      <h1></h1>
+      <h2></h2>
+      <p></p>
+    </section>
   </main>
 
   <footer>
     <nav>
-      <a href="#home-section" class="active">
+      <a href="#home" class="active">
         <span class="material-icons">roofing</span>
         <span>Home</span>
       </a>
-      <a href="#player-section">
+      <a href="#player">
         <span class="material-icons">play_circle_filled</span>
         <span>Lecteur</span>
       </a>
-      <a href="#artists-section">
+      <a href="#artists">
         <span class="material-icons">queue_music</span>
         <span>Musiques</span>
       </a>
-      <a href="#list-section">
-        <span class="material-icons">playlist_play</span>
-        <span>Playlists</span>
+      <a href="#favorites">
+        <span class="material-icons">favorite_border</span>
+        <span>Favorites</span>
       </a>
     </nav>
   </footer>
